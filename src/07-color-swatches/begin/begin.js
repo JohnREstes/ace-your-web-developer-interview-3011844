@@ -16,3 +16,21 @@ const swatchData = [
     rgb: "rgb(205, 218, 253)",
   },
 ];
+const swatchContainer = document.getElementById('swatch-container');
+
+(function(){
+  for(swatch of swatchData){
+    let tempCard = document.createElement('div');
+    let colorSwatch = document.createElement('div');
+    let colorData =  document.createElement('div');
+    tempCard.classList.add('card');
+    colorSwatch.classList.add('swatch');
+    colorData.classList.add('data');
+    colorSwatch.style.backgroundColor = swatch.rgb;
+    colorData.innerText = `${swatch.hex}
+    ${swatch.rgb}`;
+    tempCard.appendChild(colorSwatch);
+    tempCard.appendChild(colorData);
+    swatchContainer.appendChild(tempCard);
+  }
+}())
