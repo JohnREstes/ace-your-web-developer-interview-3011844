@@ -17,20 +17,28 @@ async function getPoster(){
   fetch(IMDB_API.URL, options)
     .then(response => response.json())
     .then(response => {
-      //console.log(response);
-      buildPoster(response.results);
+      const { results } = response;
+      let truncatedResults = [];
+      for(let i = 0; i < 5; i++){
+        let movie = {
+          title: results[i].title,
+          year: results[i].year,
+          url: results[i].image.url
+        }
+        truncatedResults.push(movie);
+      };
+      buildPoster(truncatedResults);
     })
     .catch(err => console.error(err));
 }
-function buildPoster(response){
-  console.log(response[0].image.url);
-  for(let i = 0; i < 5; i++){
+function buildPoster(list){
+  for(movie of list){
     let tempDiv = document.createElement('div');
     tempDiv.classList = 'moviePoster';
     tempDiv.innerHTML = `
-    <img class='poster' src='${response[i].image.url}' alt="Movie Poster" class="poster">
+    <img class='poster' src='${movie.url}' alt="Movie Poster" class="poster">
     <div class="movieData">
-      <p class="titleYear">${response[i].title} - ${response[i].year}</p>
+      <p class="titleYear">${movie.title} - ${movie.year}</p>
     </div>`;
     posterContainer.appendChild(tempDiv);
   }

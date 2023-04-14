@@ -22,6 +22,7 @@ body{
     border: 1px black solid;
 }
 .poster{
+    padding-top: 2px;
  height: 70%;
  width: 80%;
  aspect-ratio: 1;
