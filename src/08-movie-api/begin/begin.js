@@ -36,7 +36,7 @@ function buildPoster(list){
     let tempDiv = document.createElement('div');
     tempDiv.classList = 'moviePoster';
     tempDiv.innerHTML = `
-    <img class='poster' src='${movie.url}' alt="Movie Poster" class="poster">
+    <img class='poster' src='${movie.url}' alt="${movie.title} " class="poster">
     <div class="movieData">
       <p class="titleYear">${movie.title} - ${movie.year}</p>
     </div>`;
