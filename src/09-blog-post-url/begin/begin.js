@@ -2,8 +2,19 @@
   Punctuation to remove
   [!@#$%^&*()_+={}.,:'"/~`;[\[\]]
 */
+const punctuation = /[!@#$%^&*()_+={}.,:'"/~`;[\[\]]/g
+const space = /\s+/g;
+const multiHyphen = /[-]{2,}/g
+const urlBase = 'http://www.myblog.com/'
 
-function blogify(title) {}
+function blogify(title) {
+  let tempTitle = title;
+  tempTitle = tempTitle.replace(space, '-');
+  tempTitle= tempTitle.replace(punctuation, '');
+  tempTitle = tempTitle.toLowerCase().trim();
+  tempTitle = tempTitle.replace(multiHyphen, '-');
+  return `${urlBase}${tempTitle}/`;
+}
 
 const blogs = [
   "My Summer Studying Abroad!!!",
