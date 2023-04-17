@@ -1,4 +1,4 @@
-console.log(`${matchingBrackets("[hello][world]")} should be false`); // false
+console.log(`${matchingBrackets("[hello]][world]")} should be false`); // false
 console.log(`${matchingBrackets("[hello][world][]")} should be true`); // true
 console.log(`${matchingBrackets("]hello]][world]")} should be false`); // false
 console.log(`${matchingBrackets("[[[as;dfi")} should be false`); // false
@@ -12,8 +12,11 @@ function matchingBrackets(value){
     for(elem of bracketArray){
         if(elem === '['){
             counter++;
-        }else if(counter > 0 && elem === ']'){
+        }else if(counter === 0 && elem === ']'){
             counter = -1;
+            break;
+        }else if(counter > 0 && elem === ']'){
+            counter--;
         }
     }
     
