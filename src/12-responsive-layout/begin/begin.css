@@ -62,20 +62,9 @@ div{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
   .blue{
-    background-color: #cddadf;
     grid-column: span 3;
   }
-  .pink{
-    background-color: #fde2e4;
-  }
-  .yellow{
-    background-color: #fef1cf;
-  }
-  .green{
-    background-color: #d0e9c8;
-  }
   .purple{
-    background-color: #ebcdfd;
     grid-column: span 4;
   }
 }
