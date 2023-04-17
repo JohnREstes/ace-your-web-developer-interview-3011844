@@ -5,3 +5,77 @@
   green: #d0e9c8;
   purple: #ebcdfd; 
 */
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 10px;
+  margin: 10px;
+}
+div{
+  height: 150px;
+}
+.blue{
+  background-color: #cddadf;
+  grid-column: span 3;
+}
+.pink{
+  background-color: #fde2e4;
+}
+.yellow{
+  background-color: #fef1cf;
+}
+.green{
+  background-color: #d0e9c8;
+}
+.purple{
+  background-color: #ebcdfd;
+  grid-column: span 3;
+}
+@media only screen and (max-width: 700px) {
+  .container{
+    grid-template-columns: 1fr;
+  }
+  .blue{
+    grid-column: span 1;
+  }
+  .pink{
+    grid-column: span 1;
+  }
+  .yellow{
+    grid-column: span 1;
+  }
+  .green{
+    grid-column: span 1;
+  }
+  .purple{
+    grid-column: span 1;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  .blue{
+    background-color: #cddadf;
+    grid-column: span 3;
+  }
+  .pink{
+    background-color: #fde2e4;
+  }
+  .yellow{
+    background-color: #fef1cf;
+  }
+  .green{
+    background-color: #d0e9c8;
+  }
+  .purple{
+    background-color: #ebcdfd;
+    grid-column: span 4;
+  }
+}
