@@ -1,15 +1,15 @@
-const alpha = /[a-z]/g
-const notBinary = /[2-9]/g
+const binaryRegEx = new RegExp(/[0-1]+$/)
 
 function binaryToDecimal(binary) {
-    let valid = true
+    let valid = true;
     let binaryArray = binary.split('');
     binaryArray.forEach(item => {
-        if(alpha.test(item) || notBinary.test(item)) valid = false
-    });
+        if(!binaryRegEx.test(item)) {
+            valid = false
+    }});
     if(valid){
-            let count = 0;
-    let postion = 1;
+        let count = 0;
+        let postion = 1;
     while(binaryArray.length > 0){
         count += binaryArray.pop() * postion;
         postion = postion * 2;
